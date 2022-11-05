@@ -1,0 +1,572 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1414,1386" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="40">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="- Sprawdzić poprawianie NIP-U z komunikatami&#xD;&#xA;-Sprawdzić czy dostawy 0zł się dodają&#xD;&#xA;-Zaimplementować funkcję dla faktur imiennych z pełnym przebiegiem i wiadomością do Magdy" sap:VirtualizedContainerService.HintSize="1350,1321" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart sap:VirtualizedContainerService.HintSize="1308,1172" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <Flowchart.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="IsValueEquel" />
+        <Variable x:TypeArguments="x:Boolean" Name="IsNipValid" />
+        <Variable x:TypeArguments="x:String" Name="NewNip" />
+        <Variable x:TypeArguments="x:String" Name="InvoiceNumber" />
+        <Variable x:TypeArguments="x:Boolean" Name="NewOrders" />
+        <Variable x:TypeArguments="x:String" Name="InvoiceChoice" />
+      </Flowchart.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <av:Point x:Key="ShapeLocation">250,2.5</av:Point>
+          <av:Size x:Key="ShapeSize">60,75</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">280,77.5 280,104.5</av:PointCollection>
+          <x:Double x:Key="Width">1274</x:Double>
+          <x:Double x:Key="Height">1136</x:Double>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Flowchart.StartNode>
+        <x:Reference>__ReferenceID14</x:Reference>
+      </Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID0">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">380,307</av:Point>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">480,373 480,436.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence DisplayName="Sequence - Allegro and Fakturownia websites" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="Nip" />
+            <Variable x:TypeArguments="sd:DataTable" Name="InvoiceTable" />
+            <Variable x:TypeArguments="x:Boolean" Name="IsPaid" />
+            <Variable x:TypeArguments="x:String" Name="TotalValue" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadAllegro workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ReadAllegro.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Nip">[Nip]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_InvoiceTable">[InvoiceTable]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsPaid">[IsPaid]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_TotalValue">[TotalValue]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke readFakturownia workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="readFakturownia.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_InvoiceTable">[InvoiceTable]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Nip">[Nip]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsPaid">[IsPaid]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_TotalValue">[TotalValue]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsValueEquel">[IsValueEquel]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsNipValid">[IsNipValid]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+        <FlowStep.Next>
+          <FlowDecision x:Name="__ReferenceID1" Condition="[IsNipValid]" DisplayName="NIP Valid" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <av:Point x:Key="ShapeLocation">445,436.5</av:Point>
+                <av:Size x:Key="ShapeSize">70,87</av:Size>
+                <av:PointCollection x:Key="TrueConnector">445,480 312.5,480 312.5,656.5</av:PointCollection>
+                <av:PointCollection x:Key="FalseConnector">515,480 580,480</av:PointCollection>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <FlowDecision.True>
+              <FlowDecision x:Name="__ReferenceID2" Condition="[IsValueEquel]" DisplayName="Value Equel" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <av:Point x:Key="ShapeLocation">295,656.5</av:Point>
+                    <av:Size x:Key="ShapeSize">70,87</av:Size>
+                    <av:PointCollection x:Key="TrueConnector">295,700 210,700 210,787</av:PointCollection>
+                    <av:PointCollection x:Key="FalseConnector">365,700 490,700</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowDecision.True>
+                  <FlowStep x:Name="__ReferenceID3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">110,787</av:Point>
+                        <av:Size x:Key="ShapeSize">200,66</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">210,853 210,914.02</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Sequence - Export Invoice to pdf" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: mandm-beautifulstyle - Fakturownia.pl - program do fakturowania" sap:VirtualizedContainerService.HintSize="434,1185" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="471ccdd1-6af9-47cd-be18-ad47c3d88e55" Version="V2">
+                        <uix:NApplicationCard.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,969" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Zapisz'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="471ccdd1-6af9-47cd-be18-ad47c3d88e55" Version="V1">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" DesignTimeRectangle="362, 877, 60, 30" ElementType="Text" FriendlyName="'Zapisz'" FullSelectorArgument="&lt;webctrl id='invoice_submit_button1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='invoice_submit_button1' tag='A' type='' class='btn-glow primary ' aaname='Zapisz' check:innerText='Zapisz' /&gt;" Guid="c8a38602-5455-4dab-9c57-344183b9dc14" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAiCAYAAADvVd+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASwSURBVGhD7ZlNbFRVFMeN6YJ0oYTwIVi0VAQEYohxYVwQF8SFIcSFK2VBoklZsKwavootWBog9aNEQYLGaGGmlrFBjSRGoJ2vfrAgtV/TmaGEMlPaaTsfpdOZTtu/59z3Zt6b8m47NbWRV0/yy3n3nnPPveff+9pm5gkscftfANUL+yswiv2WDmw/4cDGTxpNBffEvXGPessIwIGXjjuwtzaA6lspWD2AtZtgn+YxHnNPe60B0aNehIwArM67lFBycwrvXJ3C2/Xmgnvi3rhH7jVtGQH4ihT/nsRuWwq7rxC2SYl/vOPF15Ki17RlBOD3ZI9tAm/VpQjz+j0kEPeatiwB3rQmiKSBT2OOuFSAXZcT2GXRYdKxVIA3auJLAqkAO38Yw84fCZN7qQCvfz+aG62TyP53QrNer0H+PPglQkUiE4axhUIqwGvfxXLjfAe27f8WG/W4wlQlDFu1Qf48qB+iMkOjhrGFQirAqxcjRHT+vimFGNXwOpuwI5f8WfyO8osoKvc/Mr+QXirAKxci/4BxtCSAaHcztn6mm3cromQsnNTyk0AsmMIdNYRkClXqup/FRVJzPVNKXNg0Wty6nJmWqT83UgFePjeicV73PMvYxoeJB1BR0a+Lx9FMovgcF/Dc+4QlgCim0OziWAzuOO84CbeF401w8jicEGvrQvQcilL9BPxIwSlyCAf91kmkcIZytpbS+AN1XtROwnnNq9ufmOX8UgG2fz08P7omaSVtfvU2tmXFgthc8g1ePK2OO8YpbwLuRh5HFQGC97D5CzW3hVVM4grlpgXgPB89YiSh1DjtxPqSmfuwSPTq2X9Ta+WGVIAtZ0PzYFwcsMf+K16oejReN6LUFUY/uSgJ4LrJsQhcJEDUP6jl/xmm+Bhq6bl2kPIHIzTvwYZ9XehRKig2Mq6tOfsQbn71Ot3YUJmeyw2pAJu+HMSm6lnQxX/iBoNdKDxpELdPiGtpv3QOa/cR9SFFgBscVwRA6KG2rp1vCAlA69MCKLFuFPJ65tJ9qkGvVaeyRuw/0IX1ZX1anRzPLxWg6PMHOVHRN00rRlDzcadhvOh6TBzW26aMrcO8wwSc13kcVt55JGAV+TG4uP9gP56nsUUIEEZRQ5JqTMPVoNY8FaLbkIDjD3X/+H0ck+0/B1IBCqv6iQdz+BicfGCZDcdRWNmKmoA6JvO2dsLDvo3Xh+EgASKBMSGSMG7mw05R//IAjQfCVOMWnmnI+juCaEc7Cirj8KrjLEsk8ems59a8VICCM8Ec6MXaA19hxXsSSuiQlLeuRJtbU9aONcLz+mHYWQCfD6vSaw604Fm1vlin1igou6HVJVYd7qV5pZZ+XqCrMRdSAdadCiwCqgD+YYPY4iAVYPXJPqyuJP5VP4RGcQOGcsxfeC8VYGXFvUXAixXF1Xj6I69BbHGQCrD8+F2NExJvgrhUgKfKe4m7pvdSAfKP+Yk7pveGAvBHxflHvVhW6seyoz7T+vxSn/HH4vxlwcrSNuQd9poa7tHwixH+umhLuR3Lj9xG3kEPnjzYk82hGeOZ/MfjeYc8ojfu0fCrMTYOsDp8Rfg9MRPcE/emb54tS4ClaEtcAOBvMu06UO59EK8AAAAASUVORK5CYII=" InformativeScreenshot="995a70840004541019ab9e8921ef4ef3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Export'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="471ccdd1-6af9-47cd-be18-ad47c3d88e55" Version="V1">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/180431643?a=created" DesignTimeRectangle="263, 176, 87, 42" ElementType="Text" FriendlyName="'Export'" FullSelectorArgument="&lt;webctrl aaname='  Export ' parentid='pad-wrapper' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='  Export ' parentid='pad-wrapper' tag='A' type='' class='dropdown-toggle' check:innerText='Export' /&gt;" Guid="8884a789-2a1e-4d39-8158-b13cd3d9ed15" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAAqCAYAAADGdMdzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALqSURBVGhD7ZvBi9pAFIf3vw4iCy6hVNCCsBQ8SKnCHuxhwUKrLnSle7Dggh5k8SIETMFLIFDCktuvM04Sx+yY3ahPSvMCH5g3b5LMlzeT5OAFeCPbLtbrNRgaLsIwBEMDyyWE5RLCcglhuYSwXEJYLiEslxCWSwjLJYTlEnK83MCH5ywweZxg8uTA8wNzXgE5XK63wLBlo2xZsFKUP3QxdnxzvwJxkFx/3kW1pAm9tGG/E9hlTXIZjTvX2L8o5Je7GqIRiS3XupisUsuA5+D+s51Ivv7p7bYXiJxyXQxrUWU2hnCfVdz9ca0q99MYXpTrDhoqr9TC2NePkUY7pk5NHN+YfzzTjoX6gH5W5ZP71EXFIExe7EshW2nZA1F55xis4nznyyXX7VeVxM50J26WGyL41VLxjw9JRb8kY7CztujfxnSzP0U7ulHuoC6uYbiteO16Nm0yFuUmsU5707/ajMZg1TH8rZ0rot/vJ/3TyLZ0fha55MYS0yL2yQ1X31E1xXfYsyxEwqSYWOiOrESOkt6eid+GmyHjKj+Ov165JsF5xUqOkut8i6sghVyPZZ9lD7bcf4PcrMFuzqsdQ1Xitlple3wD9saT/m9bFnTBh4iV5JK7voseUq0xgk3Mx/xLSrD2oPNG6XwTrw02ruy48s4jVyKlHipWku+B5vTUNN9ZrzTBmtjweYnee5lroTHKeh3LHqwUs2mTU15bKkzTP3NZOEDuseSTK0SOW0qY1ehhmbwxCMGj8Vas2J92Kirv6gbzP3HcRFyZaeq4vTVLUbKE9DhXq1YlXsVjgbtyo2VmzwPtlOSUK/BFRVxFg7Kb6M1cBInUAL4zQbcWf6lVROWc/jM4LetfJb9cyeoBTTsSvI+SjZtHmq+z/1uuJFhj+rWF6mVaahn1zj0WnqFPwThcrkbge/A8iZ/xVlA8TiKXMcNyCWG5hLBcQlguISyXEJZLCMslhOUSwnIJYbmE8F+lCOE/+ZFtwF+dZVmhXOU2PAAAAABJRU5ErkJggg==" InformativeScreenshot="c6fc56ffeedfe42c087d4f8e92994bba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='invoice[positions_attributes][1][description]' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target DesignTimeRectangle="265, 178, 83, 38" ElementType="Text" FriendlyName="'Export'" FullSelectorArgument="&lt;webctrl aaname='  Export ' parentid='pad-wrapper' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='  Export ' parentid='pad-wrapper' tag='A' type='' class='dropdown-toggle' check:innerText='Export' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAAqCAYAAADGdMdzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALqSURBVGhD7ZvBi9pAFIf3vw4iCy6hVNCCsBQ8SKnCHuxhwUKrLnSle7Dggh5k8SIETMFLIFDCktuvM04Sx+yY3ahPSvMCH5g3b5LMlzeT5OAFeCPbLtbrNRgaLsIwBEMDyyWE5RLCcglhuYSwXEJYLiEslxCWSwjLJYTlEnK83MCH5ywweZxg8uTA8wNzXgE5XK63wLBlo2xZsFKUP3QxdnxzvwJxkFx/3kW1pAm9tGG/E9hlTXIZjTvX2L8o5Je7GqIRiS3XupisUsuA5+D+s51Ivv7p7bYXiJxyXQxrUWU2hnCfVdz9ca0q99MYXpTrDhoqr9TC2NePkUY7pk5NHN+YfzzTjoX6gH5W5ZP71EXFIExe7EshW2nZA1F55xis4nznyyXX7VeVxM50J26WGyL41VLxjw9JRb8kY7CztujfxnSzP0U7ulHuoC6uYbiteO16Nm0yFuUmsU5707/ajMZg1TH8rZ0rot/vJ/3TyLZ0fha55MYS0yL2yQ1X31E1xXfYsyxEwqSYWOiOrESOkt6eid+GmyHjKj+Ov165JsF5xUqOkut8i6sghVyPZZ9lD7bcf4PcrMFuzqsdQ1Xitlple3wD9saT/m9bFnTBh4iV5JK7voseUq0xgk3Mx/xLSrD2oPNG6XwTrw02ruy48s4jVyKlHipWku+B5vTUNN9ZrzTBmtjweYnee5lroTHKeh3LHqwUs2mTU15bKkzTP3NZOEDuseSTK0SOW0qY1ehhmbwxCMGj8Vas2J92Kirv6gbzP3HcRFyZaeq4vTVLUbKE9DhXq1YlXsVjgbtyo2VmzwPtlOSUK/BFRVxFg7Kb6M1cBInUAL4zQbcWf6lVROWc/jM4LetfJb9cyeoBTTsSvI+SjZtHmq+z/1uuJFhj+rWF6mVaahn1zj0WnqFPwThcrkbge/A8iZ/xVlA8TiKXMcNyCWG5hLBcQlguISyXEJZLCMslhOUSwnIJYbmE8F+lCOE/+ZFtwF+dZVmhXOU2PAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Pobierz PDF'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="471ccdd1-6af9-47cd-be18-ad47c3d88e55" Version="V1">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/180431643?a=created" DesignTimeRectangle="266, 248, 233, 25" ElementType="Text" FriendlyName="'Pobierz PDF'" FullSelectorArgument="&lt;webctrl aaname='Pobierz PDF' parentid='invoice_export_menu' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Pobierz PDF' parentid='invoice_export_menu' tag='A' type='' class='' check:innerText='Pobierz PDF' /&gt;" Guid="bcf5e594-d9d1-44ef-9ecf-196997d9c002" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO0AAAAdCAYAAABG3+uWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIOSURBVHhe7dhRjoIwFEDR2RPrkq0Qd4KL8Nv4PXEBEvfQgbZIX1sUFYGXuScxGRRrP3ppMz9N05jj8WiA/+5yufi/tqnrtOuVaAGPaAHMimgBZYgWUIZoAWWIFlCGaAFlFon2vC9MUcSv0tRXf8NDN1PvClMebv5asmPvz/7qG86mSubevnZ1OzPvWpsyd4+Y18g47as6+VuACZaLNgrrdijbBVu1S/mZbUQrw3Jzuv+ujTZ+CPlI73PLjQO8brVopy/ix9F+38g8T9Xw0MlG2xLvEy3msaFo3XV6ZOyjrYfPg6NpPLa97u+L3i/3lTvGtt//tTt9cK9/P300fBCt+C7RYh6rRSuPx9FuaoPoI/BH0fjajxeObce8hyfHdDGPHccfBZX7TM5hPNpwDm6c+EGx3gkCWi0XbbJgg0WeLPpwsUeBdIJdbojW3Sfi6u7zEeceHE74Wzn52MSu/EK07LT41Go7rRAeNa00WhGVjSSOdiSu5D7p6dymxMbxGAvaRrQTdloR7dSdNpCbgzxOj/kgWnHMJ1rMYxvRxmGKxe4+G3Zif+3HC8eOI7SfjR2Pk919zLvRuu8Nv0m0mMdGou34Re5fw+Lug37jv8dBlPK+/kEQv3IRT402HU+cDogWM1kkWgDzIVpAGaIFlCFaQBmiBZQhWkAZogWUIVpAGaIFlCFaQBmiBZRx0TbmDy+e47MkIWJeAAAAAElFTkSuQmCC" InformativeScreenshot="05d32bfd5b0fe31c006e6189ee210f4b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='invoice[positions_attributes][1][description]' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <uix:NGetText DisplayName="Get Text 'Faktura numer'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="471ccdd1-6af9-47cd-be18-ad47c3d88e55" Version="V1">
+                                <uix:NGetText.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/180431643?a=created" DesignTimeRectangle="684, 286, 65, 15" ElementType="Text" FriendlyName="'52/10/2022'" FullSelectorArgument="&lt;webctrl parentid='pad-wrapper' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='pad-wrapper' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="f1cae496-8f57-42ab-b14c-5bee68ac199a" InformativeScreenshot="0a5500bc5da6ca604bd30dc66162ffa3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='invoice[positions_attributes][1][description]' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target DesignTimeRectangle="590, 286, 94, 15" ElementType="Text" FriendlyName="'Faktura numer'" FullSelectorArgument="&lt;webctrl parentid='pad-wrapper' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='pad-wrapper' tag='TABLE' /&gt;&lt;webctrl type='' tag='STRONG' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Faktura numer &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Faktura numer' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGIAAAATCAYAAABr29hqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHXSURBVFhH7VbtjcMgDL2dmKusgrJJMkmVMSplB44PG7AxIen17vjBkyyVgPHze4Hmy04MgWnEIJhGDIJpxCAojNitUcoqIcwTljQBuY/VHvBk4jqOTQtGvCVmP3dftF1fMJgg2Bf1N0b4QkpNI2Qcdn3cNeJp6LW17DBBc/1R8/N6O9JvDP/Mvlar/biTbxaoF9ZFwnmvtrEpf4M6Poq++IuR1ocrOHNZw7oYettJfXJdE11KXriXsSbkSpz9mjtXE4gXhHRokT+QVBLZzfITcdGIeg/jVobRKVeeT7nWfMRe0jyO+TxwgX5RF5GnaAAAtOj/WfNm2amg5OScd41A4TLYqegYkfJFsXpGoJhYUx5XvUEtsleDZ0BY/8aJwKIyeQz6BnzCiLgH5pxz/YgRae8rRtQRa3U0LXDZCN6cbIQjV4mMZH9iBOd2j+vvG0FfvIxzniVuG0GcdiGR50LEcUmW1QKhWvm5Xmwe53tcW0bQeRRW7iXPy0acm8z3qhG4uPnrV1MiEEO7Lxr/VstHkI3TteYCTkES04V2Xzfl+kpIDzQrhPsKCQ2jOBQ9IxI/2Gsl63kvHSM8CLeSd0/TCM+3MGLiPzGNGATTiEEwjRgE04ghYO03AoA7IskfgS4AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NGetText.Target>
+                                <uix:NGetText.Text>
+                                  <OutArgument x:TypeArguments="x:String">[InvoiceNumber]</OutArgument>
+                                </uix:NGetText.Text>
+                              </uix:NGetText>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Pobrano Fakture nr.&quot;+InvoiceNumber]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </uix:NApplicationCard.Body>
+                        <uix:NApplicationCard.TargetApp>
+                          <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAC4jAAAuIwF4pT92AAADsUlEQVRYR+1X23MTVRzu3+M4Ojo8Mvjmi+/6AMz4AF6w+KIOveAMKQ4j7aRWEWggu+kgUGW8TX1AMNkWbFKsU5uUtkMvpoE0170m2aSb7OXzd7YbLLaF0dRRBr6ZL+fs75L99pw95+yvjaG7+2hbV1f3635//1ggcE4YdBkQAh7Xr4mDm22Bpo3a+7b7MU1bM++c0NfXJ3R0dL7S2dnl3tuFz9fDRPhisRjKmgY1k4Umy8iJCgqSAk0UoWazUBUVq0UZoqxCKxRcSsxWkKFQq+Zybmyeclgu+w81k6FWQZauRUVDOBzGkSMdB+mBvbsTenqOk4APffHEDJw7i1j75BRqeREDN9O4kdRgXQ+jcXEY9yQdx64lsVTU0Ri+Amv0BsbI3zt6FxVRhXHqDMyZWQxN5TEyL8P+bZpsZ1Em30mKmUxXMBGLMgEHthBw1BePxwHDgEOKbctGsdJArWHDKZddGqaNQqUOk3wOPTFqNZQNC3K1Acc04YgSnHodSs2EXrcAXXfjWDzLq9vA+PijBPzLeLwFsKH8Padi/q70UM4R0yJNm+MlbkBLApYyCl7u+hIvtofwwjv8tnzubQ57T46gVDW8zD/RkoCZZBHPH+Kw+/2L+Gg4io+vTGxJ5rsQuQ2jQS/iX9CagJV1Afv7fsBa3fSsfw87ImBf78hTAU+4ALbEKmsN2LbzAC2XtE1vtQF4aFkAW+e7Dg/h4KdX0X7mOt49+5PLw9Q/9Pk1vPnZj7g8OudlbEbrAtp5PPPGeeyhveClDy5hzway693vfYH+bye9jM3YkSl49cT3SBU05BUduS2o0/Rshx0RsL/36Ub0P1iGtSdzBOg4fvatoDsC/4mAlbyG12gJHr8cdb+O/glaEmDTFqvqBqrG9uv8UWhJwE7gMRHA5peGmw43l+7nrbX+fWd5djr+XLIuOwVZu25r5tFPM6+ZQ3iIAK80W1yCcTqANaoBT0dXEU2VYEUENL76Gmm5ihPhFJJiFeY338Eej+Fn8rMSTpc0GIPnYc7O41K8iKsLVF3FEzACQVTkEvpv3sPU6jalWbM4nbh1C+X0KtTpBGRJxq/LeaTyMrSFRWh3FpChAvOXpRyKrGCdnUMplcJiRsL0SgFqkQrYqWloVMQmUkUsZ2WUkitQE7chUfzkco7yNUQiESbgweKUbu6W5wMDA2McHxKCIWKQE0I8J/AcJwSZjchRf4jnBY58bgz1mZ/FBVlcaIhafkMe78axeJbHbH6/f0N53tb2Bw29uqVXHgh2AAAAAElFTkSuQmCC" InformativeScreenshot="c59f066d4f092b53ea0a105fff35283f.png" Selector="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" Url="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" />
+                        </uix:NApplicationCard.TargetApp>
+                      </uix:NApplicationCard>
+                    </Sequence>
+                    <FlowStep.Next>
+                      <FlowStep x:Name="__ReferenceID7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">110,914.02</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">310,939.52 340,939.52 340,940 1050,940</av:PointCollection>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadInvoice workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="UploadInvoice.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceNumber">[InvoiceNumber]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">1050,914.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">1250,940 1269.75,940 1269.75,176.5 669.75,176.5 669.75,206.5</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke re-check allegro workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="re-check allegro.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_NewOrders">[NewOrders]</OutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                            <FlowStep.Next>
+                              <FlowDecision x:Name="__ReferenceID8" Condition="[NewOrders]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3" True="{x:Reference __ReferenceID0}">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <av:Point x:Key="ShapeLocation">610.5,206.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">79,87</av:Size>
+                                    <av:PointCollection x:Key="TrueConnector">610.5,250 480,250 480,307</av:PointCollection>
+                                    <av:PointCollection x:Key="FalseConnector">689.5,250 780,250</av:PointCollection>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <FlowDecision.False>
+                                  <FlowStep x:Name="__ReferenceID9">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">780,224.5</av:Point>
+                                        <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Brak nowych zamówień na fakturę&quot;]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:MessageBox>
+                                  </FlowStep>
+                                </FlowDecision.False>
+                              </FlowDecision>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowStep.Next>
+                  </FlowStep>
+                </FlowDecision.True>
+                <FlowDecision.False>
+                  <FlowStep x:Name="__ReferenceID4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">490,674.5</av:Point>
+                        <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Wartości na fakturze i Allegro nie zgadzają się&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:MessageBox>
+                  </FlowStep>
+                </FlowDecision.False>
+              </FlowDecision>
+            </FlowDecision.True>
+            <FlowDecision.False>
+              <FlowStep x:Name="__ReferenceID11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">580,454.5</av:Point>
+                    <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">780,480 845,480</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Wybierz odpowiednią opcję" OptionsString="Błędny NIP;Faktura imienna" Title="Rodzaj probelmu">
+                  <ui:InputDialog.Result>
+                    <OutArgument x:TypeArguments="x:String">[InvoiceChoice]</OutArgument>
+                  </ui:InputDialog.Result>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InputDialog>
+                <FlowStep.Next>
+                  <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID12" DisplayName="Flow Switch" Expression="[InvoiceChoice]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_4">
+                    <FlowSwitch.Default>
+                      <FlowStep x:Name="__ReferenceID5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">1020,454.02</av:Point>
+                            <av:Size x:Key="ShapeSize">200,51</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">1120,505.02 1120,577</av:PointCollection>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label=" Podaj poprawny NIP firmy" Title="NIP">
+                          <ui:InputDialog.Result>
+                            <OutArgument x:TypeArguments="x:String">[NewNip]</OutArgument>
+                          </ui:InputDialog.Result>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InputDialog>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">1020,577</av:Point>
+                                <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">1220,610 1247.5,610 1247.5,406.5 497.5,406.5 497.5,436.5</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Sequence - New NIP" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: mandm-beautifulstyle - Fakturownia.pl - program do fakturowania" sap:VirtualizedContainerService.HintSize="882,1655" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="8857e4e1-25ea-445c-8fd3-dc6721dfe8e4" Version="V2">
+                                <uix:NApplicationCard.Body>
+                                  <ActivityAction x:TypeArguments="x:Object">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="848,1439" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NClick ClickType="Single" DisplayName="Click 'Zaczytaj dane'" sap:VirtualizedContainerService.HintSize="806,156" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8857e4e1-25ea-445c-8fd3-dc6721dfe8e4" Version="V1">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" DesignTimeRectangle="1311, 269, 226, 23" ElementType="Text" FriendlyName="'Zaczytaj dane'" FullSelectorArgument="&lt;webctrl parentid='buyer_header' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='buyer_header' tag='A' type='' class='btn-glow btn-xs pull-right get-regon' aaname='Zaczytaj dane po NIP, REGON lub KRS ' check:innerText='Zaczytaj dane po NIP, REGON lub KRS' /&gt;" Guid="a7c90845-7e8f-4022-aa42-df4092018705" ImageBase64="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" InformativeScreenshot="9268c310c8f54e8e8fb98638b071066d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                        </uix:NClick.Target>
+                                      </uix:NClick>
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Wyszukiwanie na'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="806,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="8857e4e1-25ea-445c-8fd3-dc6721dfe8e4" Text="[NewNip]" Version="V1">
+                                        <uix:NTypeInto.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" DesignTimeRectangle="686, 246, 548, 34" ElementType="InputBox" FriendlyName="'INPUT gus_numer'" FullSelectorArgument="&lt;webctrl id='gus_numer' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='gus_numer' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="6b60f4a3-4cf1-4f94-b373-5ff6e4e0c4b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAigAAAAmCAYAAADumGDcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAU+SURBVHhe7Zs9TxtLGEb3T/LjUtCgSDQ0RKKioaFCIgUFzSWKhESKSBERH3Iua8/d4/Cg9xoTcG4MvvI50qPdnZmdHdO8R7NL1wYmkyHD8W7c2uhu0m7/HjIcb4ajMcYYY8wygmvgHLgHDoKL4CTQcdKPh85+0i5Hk/blatw+X/bt07e+nQ3569udMcYYY8wfDY6Ba+AcuAcOgovgJLhJh6jQ8PVm3I4vfrQPp1ft/cfLtnVsjDHGGLPc4By4Bw6Ci+AkuEk3HKfWQgeDTi6u2/XtqI3HY2OMMcaYpQbnwD1wEFwEJ8FNOt77sLWCvTCg7/s2yQsgERERkSWCc+AeOAgugpPgJh0fp/D+B3PBYpQTEREReU1wDxwEF8FJcJOOL2j5SIX3QGy1iIiIiLw2OAgugpPgJh3/5sPXtAqKiIiIvBURFJwEN1FQRERE5M1RUERERGTlUFBERERk5VhIUDY2Nu7PRERERJaHgiIiIiIrh4IiIiIiK4eCIiIiIivHwoLy/fv3+6vW9vb2pgnn5+dte3v7X2NmecmY/yv8ts3Nzbazs9NGo9FD29bW1vR4eHjY3r17Nw1t/A34+6WN1HtFRETWlYUF5fT0dHpOcaXI1oJK3zoX2AgKopG/UxUUmP0bVcmjjb4qfSIiIuvIwoLCLgBQcCmku7u7D8WXPlILbXYG6n3ZQYnkZAzj6y4DyU5DJfPz7AhBijr3VwGo1znPM7kHYeCcefI7oK6Dc8ja9/f3p+2RkEA/cx8cHDw8M22Z+1eCAvTP+80iIiLrxMKCUkWApMhHGup5xtYiTSIo9Kf4c8/R0dH0PNT+SuafJwGMrwJQrzlP8WcsUpI1csx5lQTCerN27pm3Jsg6zs7OHsQtbRzhJYJS+0VERNaRhQUlcsEuAkWXgkqBrYWc4kqRpQ/qNf1VUGpxrjA2kjBL5osoMIax3POcoOR5db1Q+zhmbsh1Xfs86I+M5O9S24D2uj7G5Lmzv0tERGRd+S1BYYeAokqhJpxn14Aim0JLMYZ6XYt82vMqJePpi3DMY7aQ1/G00ccYqNecRwa4Z1ZQMo4xWVNCf137PKqMZH52hZ4TlPqcrE9ERGSdWVhQKKCISJWRXKe40kYRjmDU66eKPH0UctqZ51eFOvMhDcA9EZRZAfhdQcnclafWHuivMsIcXD8nKL/6rSIiIuvIwoJC0c2OQkgbxRciELnmGPmoRZ6PSVPsU7hPTk4exj5F5s8aGMs9zFGflXERAsa/RFDqHJB569rnQT/3Zc6sq36Ayzx5DigoIiIij1lYUCi0FFwKbeC8FuGIQV5b1D6OKfIRmzqGYp02UkUhZP55ggKZgznZ2VlUUHKdNWRtde3zoL8KCjBP7q9z5ncpKCIiIo9ZWFBeQgSiSoyIiIjIS1FQREREZOVYiqCIiIiI/BcWEhQRERGR10BBERERkZVDQREREZGVQ0ERERGRleORoNzeTdqnb72CIiIiIm9GBAUnwU2628FSPl/27f3Hy3Z9O2qTyeR+qIiIiMjywT1wEFwEJ8FNutFgKV+uxu3D6VU7ubhufd8rKSIiIvIq4By4Bw6Ci+AkuEnXDy5yOZq044sfU3NhABbDVosxxhhjzDKDc+AeOAgugpPgJh17JaPh7OvNeNqBvTCI90DGGGOMMcsMzoF74CC4CE6Cm3S8zenHk2kD1sLWCu9/+EjlbAhf0xpjjDHG/MngGLgGzoF74CC4CE6Cm3Q/3/8MGY534zZ978PHKXxBy7/5GGOMMcYsI7gGzoF74CC4yM/PYFv7Bzg77YE9EKfdAAAAAElFTkSuQmCC" InformativeScreenshot="ab5947ddc960182798a7a686de58f808.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target DesignTimeRectangle="676, 209, 568, 22" FriendlyName="'Wyszukiwanie na'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div' parentid='gus_form' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='gus_form' tag='DIV' class='col-xs-12' aaname='                 Wyszukiwanie na podstawie numeru:                                                                                                                                                                                 ' check:innerText='Wyszukiwanie na podstawie numeru:  NIP    REGON    KRS' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NTypeInto.Target>
+                                      </uix:NTypeInto>
+                                      <uix:NClick ClickType="Single" DisplayName="Click 'Pobierz'" sap:VirtualizedContainerService.HintSize="806,156" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8857e4e1-25ea-445c-8fd3-dc6721dfe8e4" Version="V1">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" DesignTimeRectangle="1097, 388, 63, 31" ElementType="Button" FriendlyName="'Pobierz'" FullSelectorArgument="&lt;webctrl name='gus_submit' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl name='gus_submit' tag='INPUT' type='submit' class='btn-glow primary' aaname='Pobierz' check:text='Pobierz' /&gt;" Guid="9222ee12-2bad-4b10-95b8-ec35d75f45f2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAjCAYAAADPPrcpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUDSURBVGhD7VnrU5RlFK8xu0yiXHZAqZQpp/tlqqkP/RFdnDJzmmxqJpHU6FMUMSGKWHK/ZMUH0JDEyktmM9o04EIXGlHLEJZlAUXYGxfd5baseDq/s7wvL8s+woecxl3OzG/Oc97fOed9zu99n4WZ9yaaN93mxTDYNDHO9ngpeV8zPbqtgVZmmsMWmA9zYl6j6WKAeCirgV6stFFZo5fKm4bDFvkNHlq1u0PmNQqiiwGlXqiw0boDA/RcuYue+YrxpQFhFGO+dQcH6HmeF3NrpouBV2ft/j56+gtnxODVGrfMrZkuBs7Ss6zaU7uc9CQjEjzmxdyaTRPjiTJHxEEpxmOlDnqcEyLJK8V4pMQecVCK8XCxPeKgFOOBwp4pFPVO+qA4zHilGPczeT1R1uihId9V8aH4/wNKMe7Lv0grGbP5kj88NH7l6mRlwKx9/lnrihvc5B31iw/mS7knhIJX1V8XrxLj3ryLU+DEkJ5RXO+mfu8YvbvrZ4p/vVS8d+yKCKLlhKpHnYjBPphP2t5Cyzbsp6TsFmW9eA3/Ea8UY8XObkrK7aYVDPGKuFDE8FHqEafEy3fYyNzqJPulMf4v1kVFv1/W3xw87fd/6g/UmQNinOweEQ627+8h6V/MNf0jE5KLGB61MPQCj/vD4/rJHp9wbfwAtDzNtHvOZR6lGMuZnAswFMR4j8VAnHq0X94Ms8VNqT/ywL4JqjJbybS2lMwtLJLHT2tqXFI37p8gi3NYuKraZslFvbEnclGDWulxzq7ssewDM8Un75f1S9mHqHdgSOruybHN2HcoKMW4+9MLc0LBicCGjGZucdDStN+o+sxl6h0coVcqrJKb/0s3C+WnwoZBqfOOjlPesQ7hNn9/Xo5bQf2AcBBj82Gn5PYP+Whjzew9jKjvHKXeS6P0cnnzDE4FpRiJOy5QIicAd8Er4nzeUB8Pkfz5cYp5rUQAIcCbbR7Z0Opqu8TIxdHAENoaHv028eCIq08FhoQYuIY42HwsPuqM/Yz7K/iVj9mQn1L2nKbEnM5r7t8YK8VYmtPFOD+rzzvhYjH4yR2yz+Cr/nTwm8FPZy+4LsnF5uGNa+SjHqLm1doNPR0S93lGaH3ZcYpeUyyIeXM3JWT+E9QjcN+NR1ggPm5fN3RSwlarfn0uXilG/PYuHQmGdXCcWxfYeAoPE8ynfNslm9172iNxq2tMjs2qyk6pAwePfHPHsM7lGXoixnXwWv/Gbv7r9YNb74F8jWt1+ajunINM6af0a9favzFWimHa1kmmbMYsfmetU57ohgP2GXzcFgvtMdsmu5Kc9fWVTWTa2i51eN018/Ffic+OWsiUxVzdZM+D3JNj1OBHWbNWxzDFZVokD78Z8Lhfbv0g95n++4W3JOWwe8a+Q3mlGLFMxhmgimMzztKSd76jWN5cKD7mwyZatLpIsPjtb/S8GK5b/EaFzkXxGr2kFpyhJ3wU12q50ZuOSX/Je6tavB4begLaPVX7N8ZKMaKzOiIOSjGWbOmIOCjFWJRp0xFlWIdzrBTjzk9sEQelGLdnWBnt4u+Y9OEeK8W47WPrFDhxetweFBvWEt+YfEgx8P3g1nQLLUxv03GLYb0w3RoU3/g85g353QRfluIy/qIFH7VFDDBvyC9q+Ob4YFY9RaefoQVprXRzmiVsgfkwJ+YN+a0VBgJK4dXBWQpXYD7MaRQCNk2MSLd5MXQj+heefV2YtZBZcAAAAABJRU5ErkJggg==" InformativeScreenshot="ce25aad5cad60e0817a60db3c3181431.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                                        </uix:NClick.Target>
+                                      </uix:NClick>
+                                      <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Wystąpiły następujące'" sap:VirtualizedContainerService.HintSize="806,697" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="8857e4e1-25ea-445c-8fd3-dc6721dfe8e4" Version="V1">
+                                        <uix:NCheckState.IfExists>
+                                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,481" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Brak NIP-u &quot;+NewNip+&quot;W bazie danych&quot;]" />
+                                            <uix:NClick ClickType="Single" DisplayName="Click '×'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8857e4e1-25ea-445c-8fd3-dc6721dfe8e4" Version="V1">
+                                              <uix:NClick.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" DesignTimeRectangle="1216, 157, 17, 21" ElementType="Button" FriendlyName="'×'" FullSelectorArgument="&lt;webctrl parentid='gusModal' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='gusModal' tag='BUTTON' type='button' class='close' aaname='×' check:innerText='×' /&gt;" Guid="3209df3b-2da9-47e6-b264-9681710ae80b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAAZCAYAAADe1WXtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADkSURBVEhL7dPJCoMwFIXhvv+zCYo7EUfciQgOiDjcciSpNblJpcOq/uDCiF9vE7zRD7rQ73eheuu6Utu2tCyLWNGbpomGYRB3xzQUYFmW5LouFUXBwgDjOCbf96lpGrG6p6HzPFOWZeQ4znapsARNzxH79/Fimqbai2dAZDwoTPwMY/ooil6CyIgiFT4DIiuKxnGkIAgeYBiG2zbYsqLq3srr7UlVMM9zSpLkFMyiADlA/SETrKE4HNtE6uFxMDtpVVXkeZ5xEgnji6rrWqzuGfe073sWlAHuuk7cHTOin/TXKNEdRiIHZ0Y+isoAAAAASUVORK5CYII=" InformativeScreenshot="329bae25c6355680bdda77c39e0cd357.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                      <uix:Target DesignTimeRectangle="686, 157, 548, 26" ElementType="Text" FriendlyName="'Pobranie danych'" FullSelectorArgument="&lt;webctrl parentid='gusModal' tag='H4' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='gusModal' tag='H4' type='' class='modal-title' aaname='Pobranie danych firmy z Bazy Internetowej GUS' check:innerText='Pobranie danych firmy z Bazy Internetowej GUS' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAigAAAAeCAYAAAAGseUcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAApMSURBVHhe7ZzLi1zHGcXz72aRjQNZxOCFA9kkkEUMWTjgRQyBQAgEQiALB7yzEZGsRYIQeowsiIwQMnoghB7XPsOc4fSZr+rW7e6xb6vPD4qeW/d7V301pfYkP5lCCCGEEFZGLighhBBCWB25oIQQQghhdeSCEkIIIYTVkQtKCCGEEFZHLighhBBCWB25oIQQQghhdVy4oLx48WL67e9+P/30Zz8vB95BZin/ufrVqT4+1wDieO8X70937p6czeyfH8LHPth1bf74yZ829scXX145iLyXgFyQE/PUsW1PXDbs5W3j+8c//7Wafm2Bdfn0z385e1oHrDv6YoRqb73/wa+mx99+eyaxCez2+qvVz5wf9RPCj82FCwo2Kzatb2Qdo42n4LBb0y8txHPZzflD+NgHu6yNH67YG4eS9xKqw13HNj1x2bCX34V+reDeQ6xrYjQuXmSq/cThNkYundXaYQ9U9jnWfhENh8fbt2+np0+fTm/evDmbucirV6+6/3i6cEHhQVw1F5tjm18+aJBeU71rjBwka2GXtakOw3eRVp679MRl0+vlOQ6hX5Hfoe497husT5UDnjHv7+YundV+pK1qj3KPrH2tw2GBy8nDhw+nq1evTvfv3y8vKbic3L59e7p+/fr05MmTs9lNLlxQ5n7hVO/9du4HIpsGcmwIDG8yNh/0KadN5X6qJsUcfP3/wYNTXcrCHmk1udtXnR562GAg/lEf/h5grpcD/WH4ocK6uSxtYOj66NowZsjgk3Wv4KGndtUG8+Kzr+mDb745z0HzpN+qpmBJ7kpVBx1aE4e6jM2BbvUONVAfrAkYiWfbXAlsVL0Ke629xfXivPvwnCr/lQ/IzflWMMf3GFo74HHoe9f1+jEOnUOtIKv7gLXo2fa4QGs/KPRX6RP2mMZE/zqnMGbNj3aqOgPEMBdvCEt4/fr1dHJyMl25cuV0+CWFl5PWe3LhgtLbrDww+Z7NoA3LoQ3EBvnw178Zkvvr3/5++on3iId+XZfvCeOp/GhO3vi9PFpNTVq6H/3h4w0f+84BOn7I0gfnR/JiLRivymhcjh/UGMjVa9taU8aGvx/wGBG/z0EXtsBI7k6vFhi9daZuVQ/mp+8YS+WHcqPxbJMrgS58wBegz97eYj6cZ9178WrtGBv2E2sAvZOvv571TRC3y2CwdlV9ud9aulorr6nmRjsAefm+c7sYjIvg2ecU+tMYRkF8GpPD9dM8dvEXwrbgEnL37t0Ll5DRywnYuKD0NjKeMa8NyYbVZmSD6KHDX2baWJRTX2gqNr0eepyvDkLVp03IaoMiPvXdOni2aepKt8pj3zngndYYLMkL7wB0PFbG5fYdxqr2PQbmrfaB+qU+Y8Oc1gTvl+Y+AmOYW2PmyXh9sJaEOWu+1Vo7VTzb5lr50zxYc+B7i3Iaf28vtXxoXUZ9t9bE5Zif+qCu1otymGc+XlPMMw/G5vZH42JNNEeHthjPEuBPY3datrX+Pf0Q9gm+SdFLCr5VuXXr1tDlBGxcUHQTtwYblLJ6QBA0pzYtnqHrTePNhudKroIHgR4YbE4/HPDsfvjMPKoDxfWcVg14uPV0wS45QE5rTFuMpbc+Cuy21sYPY4exqq7Wls+VffrVPFk39wsZzXUu9xEY+1yOgLKtofm2YIwtf614ts21Wn/60JoDPGsO/kxbrgdclj48vhHfrfUHjAF2qmfqaizE48cnnjFPPcTLARgvPneJq0L9K/ANnzpUDnkhvyoOAhuVbeI+enGGsA/8kjJ6OQEbFxQ0jm5eH2xw0GoygE2v79AUVVNhfuRwgr0qHgzYIGqPuF1/nsu5OvBIqwbuA+wzBwCf8M0DxmPprY9S+cPPmNO4KuBDdT3OKm5S+WVOsKtAdknuc3Atqrgq4L9ln7ForUbXmvTi2TZX2qQeqGperZHXGz41Bx9qsxXfiG/mWvngYD74VD/U9b0D4BO++U519WfEyPXRGuwSVwXiaNXC7eo69HIEXs8eiJM+mHMIl8XLly+nGzdunF9Obt68efqfeubYuKBgo841F4GsNxnRd344EG+mlpw2ko7P/v35hnyrOWmXTejP+Kzsc0AWOhWtGriPfecAOAfd6n0rNqXSAzwIeehWVLG6PY1Roa77rQ73Kka128qhBdfCa9yiytOBb74fXWsyF8+2uUJea9nKw21STuPEO89HB/Rhh7LuY9R3q3Y6IAMQn9qjLt8r/k73t8bLn//7vxsb+5/6vUFZxKX1qPC1qajWmnHQl8O8VGcOyM7FEsIu+N+icCz6BqV1iLTAxq4akU1CO3zWAw+w2ThPOW++lh9vVjZ0yw/l3E/L/ggtXcSgue07B8D1gm3I+yEzkldvbdyew1jhh3ht/Zm0/FYxV7JzubdgHUf3OKjyVBgLbbbqTt9ai5F4ts3V42Ae1VprXNWatXJyNFZl1Lc/t6j8tHQpq3VjjvzDbeogPshiXvNdGhcGfm5Be14PpfI5t/6oh+qMxAPZns0QdsEvJ/fu3Zvu3LkzfEk5v6Cwaf1waYFmQTOoPG1ok7DRtEkop43RahTY93nadH31S7yp/Zl6eliwsSt7CmugupxT3X3nQGAXcVaHfxUb9GGHawE/Lbtzv5BoS2P1OFv2qzxbh2kvxlbuFfQJvSUwz8qH7hO+X7rWI/EszZUXAq0l/eFTGVkz6qpvzZ02Ry8ixH1XcQPIaa0qP7ABW5jnvtUYtc7Ux/+iSOVh75ffP8OO2t4lrgrKQbeSZb1a6+BxaJ7+DrHN+dEahLAvcDmpLiN+aeldUs4vKK1DpIU2mQ89DNAYbHqX06aBTtUojKsaKg9brs/G1aZ1P708qqZWerp6uOw7BwJ5t0FasWlcPX+6hhXQ9QPUa9ta08ov48U7pWejlbvDnLwWHL09Tz+9oWszstZL41mSK+Ava13DquaMQ+PXfKkPHehyXgfkCXOv4h/xDeDTfWCoHPPDvNpt6bpvzUfjZ+4uD5bE1dtPRHNoDbfDmlWyGN6PQHNtjZF4Q1gC/jC2902J/+Fs65JyfkFBc1YbvIc3jOvzPZrbG1KbQuUqeHBw4FnjpT4GfiZsTtptyXGe9pfUocoL/tzHvnJQ4Iu2Kvxw0oN3zl/LJkE8PXt89rhbfpnL6L6Yy13xOuiYW2v4rvQ4Kv+YcxkM+loaz5JcgdeyVXPGofXV/az+aKMXJ+R1T4Alvgns0I/HATQWtzunC6jvOczVec42nqu6tNA8dHDdWjBOHVUdlWofe+1C2CePHj2arl271rx88JKC/yfZx48fn81usvFHsuGwwKHjvxCOhWPK/ZjX+ZDIOoWwyfPnz5v/+QbgkvLs2bOzp4vkgnKgzP1r713mmHI/5nU+JHrfCIUQtiMXlANDv949tq9ojyn3Y17nQ4IXE64V1i2EsB9yQTkw8C9pHITH+FXyMeV+zOt8SOhFMt+ehLBfckEJIYQQwurIBSWEEEIIqyMXlBBCCCGsjlxQQgghhLA6ckEJIYQQwurIBSWEEEIIK2OavgM5bcqBm7qEggAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                                    </scg:List>
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:NClick.Target>
+                                            </uix:NClick>
+                                            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Boolean">[IsNipValid]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </uix:NCheckState.IfExists>
+                                        <uix:NCheckState.IfNotExists>
+                                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,286" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Znaleziono NIP w bazie danych&quot;]" />
+                                            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Boolean">[IsNipValid]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </uix:NCheckState.IfNotExists>
+                                        <uix:NCheckState.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" DesignTimeRectangle="686, 214, 548, 69" FriendlyName="'Wystąpiły następujące'" FullSelectorArgument="&lt;webctrl id='errorExplanation' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='errorExplanation' tag='DIV' type='' class='errorExplanation hidden' aaname='                                           ' check:innerText='Wystąpiły następujące błędy:&amp;#xD;&amp;#xA;Wprowadzono nieprawidłowy numer NIP' /&gt;" Guid="2d5cc587-94d1-4291-a7a5-3dadf117f32e" ImageBase64="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" InformativeScreenshot="58d5d89b8ded4b484792dab9aa421ed5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target DesignTimeRectangle="702, 222, 516, 21" ElementType="Text" FriendlyName="'Wystąpiły następujące'" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='' aaname='                 Wystąpiły następujące błędy:               ' check:innerText='Wystąpiły następujące błędy:' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NCheckState.Target>
+                                      </uix:NCheckState>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </uix:NApplicationCard.Body>
+                                <uix:NApplicationCard.TargetApp>
+                                  <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAC4jAAAuIwF4pT92AAADsUlEQVRYR+1X23MTVRzu3+M4Ojo8Mvjmi+/6AMz4AF6w+KIOveAMKQ4j7aRWEWggu+kgUGW8TX1AMNkWbFKsU5uUtkMvpoE0170m2aSb7OXzd7YbLLaF0dRRBr6ZL+fs75L99pw95+yvjaG7+2hbV1f3635//1ggcE4YdBkQAh7Xr4mDm22Bpo3a+7b7MU1bM++c0NfXJ3R0dL7S2dnl3tuFz9fDRPhisRjKmgY1k4Umy8iJCgqSAk0UoWazUBUVq0UZoqxCKxRcSsxWkKFQq+Zybmyeclgu+w81k6FWQZauRUVDOBzGkSMdB+mBvbsTenqOk4APffHEDJw7i1j75BRqeREDN9O4kdRgXQ+jcXEY9yQdx64lsVTU0Ri+Amv0BsbI3zt6FxVRhXHqDMyZWQxN5TEyL8P+bZpsZ1Em30mKmUxXMBGLMgEHthBw1BePxwHDgEOKbctGsdJArWHDKZddGqaNQqUOk3wOPTFqNZQNC3K1Acc04YgSnHodSs2EXrcAXXfjWDzLq9vA+PijBPzLeLwFsKH8Padi/q70UM4R0yJNm+MlbkBLApYyCl7u+hIvtofwwjv8tnzubQ57T46gVDW8zD/RkoCZZBHPH+Kw+/2L+Gg4io+vTGxJ5rsQuQ2jQS/iX9CagJV1Afv7fsBa3fSsfw87ImBf78hTAU+4ALbEKmsN2LbzAC2XtE1vtQF4aFkAW+e7Dg/h4KdX0X7mOt49+5PLw9Q/9Pk1vPnZj7g8OudlbEbrAtp5PPPGeeyhveClDy5hzway693vfYH+bye9jM3YkSl49cT3SBU05BUduS2o0/Rshx0RsL/36Ub0P1iGtSdzBOg4fvatoDsC/4mAlbyG12gJHr8cdb+O/glaEmDTFqvqBqrG9uv8UWhJwE7gMRHA5peGmw43l+7nrbX+fWd5djr+XLIuOwVZu25r5tFPM6+ZQ3iIAK80W1yCcTqANaoBT0dXEU2VYEUENL76Gmm5ihPhFJJiFeY338Eej+Fn8rMSTpc0GIPnYc7O41K8iKsLVF3FEzACQVTkEvpv3sPU6jalWbM4nbh1C+X0KtTpBGRJxq/LeaTyMrSFRWh3FpChAvOXpRyKrGCdnUMplcJiRsL0SgFqkQrYqWloVMQmUkUsZ2WUkitQE7chUfzkco7yNUQiESbgweKUbu6W5wMDA2McHxKCIWKQE0I8J/AcJwSZjchRf4jnBY58bgz1mZ/FBVlcaIhafkMe78axeJbHbH6/f0N53tb2Bw29uqVXHgh2AAAAAElFTkSuQmCC" InformativeScreenshot="5093d019a3d5fd03eb31811b7a65e02e.png" Selector="&lt;html app='chrome.exe' title='mandm-beautifulstyle - Fakturownia.pl - program do fakturowania' /&gt;" Url="https://mandm-beautifulstyle.fakturownia.pl/invoices/new?kind=vat" />
+                                </uix:NApplicationCard.TargetApp>
+                              </uix:NApplicationCard>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID1</x:Reference>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowSwitch.Default>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">845,436.5</av:Point>
+                        <av:Size x:Key="ShapeSize">70,87</av:Size>
+                        <av:PointCollection x:Key="Default">915,480 945,480 945,479.52 1020,479.52</av:PointCollection>
+                        <x:String x:Key="DefaultCaseDisplayName">Błędny NIP</x:String>
+                        <av:PointCollection x:Key="Faktura imiennaConnector">880,523.5 880,584.5</av:PointCollection>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <FlowStep x:Key="Faktura imienna" x:Name="__ReferenceID13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">780,584.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Faktura imienna. Uzupełnij dane ręcznie&quot;]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:MessageBox>
+                    </FlowStep>
+                  </FlowSwitch>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowDecision.False>
+          </FlowDecision>
+        </FlowStep.Next>
+      </FlowStep>
+      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID4</x:Reference>
+      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
+      <FlowStep x:Name="__ReferenceID14">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">180,104.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">280,155.5 280,185.5 650,185.5 650,206.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login to allegro workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Login to allegro.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_NewOrders">[NewOrders]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InvokeWorkflowFile>
+        <FlowStep.Next>
+          <x:Reference>__ReferenceID8</x:Reference>
+        </FlowStep.Next>
+      </FlowStep>
+      <x:Reference>__ReferenceID8</x:Reference>
+      <x:Reference>__ReferenceID9</x:Reference>
+      <x:Reference>__ReferenceID10</x:Reference>
+      <x:Reference>__ReferenceID11</x:Reference>
+      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID13</x:Reference>
+    </Flowchart>
+  </Sequence>
+</Activity>

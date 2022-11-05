@@ -1,0 +1,488 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ReadAllegro" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Nip" Type="OutArgument(x:String)" />
+    <x:Property Name="out_InvoiceTable" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_IsPaid" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_TotalValue" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1414,2952</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ReadAllegro_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="39">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="957,2887" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="InvoiceTable" />
+      <Variable x:TypeArguments="x:String" Name="Nip" />
+      <Variable x:TypeArguments="x:Boolean" Name="IsPaid" />
+      <Variable x:TypeArguments="x:String" Name="TotalValue" />
+      <Variable x:TypeArguments="x:String" Name="ShippingMethodValue" />
+      <Variable x:TypeArguments="x:String" Name="ShippingMethodStr" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Zamówienia" sap:VirtualizedContainerService.HintSize="915,2689" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" ScopeGuid="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="881,2473" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="ExtractInvoiceTable" />
+              <Variable x:TypeArguments="x:String" Name="ProductName" />
+              <Variable x:TypeArguments="x:String" Name="Qty" />
+              <Variable x:TypeArguments="x:String" Name="Price" />
+              <Variable x:TypeArguments="x:String" Name="RowNip" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Sequence - Extract data from order" sap:VirtualizedContainerService.HintSize="839,2379" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="Status" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractInvoiceTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='QtyPriceString'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='text'&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="0" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NExtractData.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="8, -445, 1903, 884" FriendlyName="'Biznes szukaj'" FullSelectorArgument="&lt;webctrl tag='BODY' /&gt;" Guid="19667407-24ee-44f5-a7b9-3a9243a67c83" InformativeScreenshot="a5e900785c11e3d92546cb1b52e18329.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                </uix:NExtractData.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NExtractData>
+              <uix:NGetText DisplayName="Get Text 'Dane dostawy'" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" DesignTimeRectangle="664, 739, 174, 19" ElementType="Text" FriendlyName="'Allegro Paczkomaty'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p&amp;gt;span' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='SPAN' class='mgn2_14 mp0t_0a mqu1_21 mgmw_wo mli8_k4 delivery-name m3h2_8' /&gt;" Guid="6d1d3907-ba19-4676-afb0-8ba049775fa0" InformativeScreenshot="93e20cc499baff782801a5fc9bd5a840.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="664, 714, 102, 18" ElementType="Text" FriendlyName="'Dane dostawy'" FullSelectorArgument="&lt;webctrl aaname='Dane dostawy' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Dane dostawy' tag='SPAN' type='' class='delivery-label' check:innerText='DANE DOSTAWY' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGoAAAAWCAYAAAAowQktAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJbSURBVGhD7VXbkcMgDLyq3URcBeMW7i+uwlUkTXCAJNALO5nk45hhZ/iIIqTVrkh+4sQQmEYNgmnUIJhGDYJp1CCYRg2CadQgaEYdIS7Lok6IB36tcWyQE3QC1bnt8YEhwBFDiq93isJn2c+pl/EOt+ceV5XbehIecb/JnGU74uO+yhg7sgbdX+P+xFAC3Pdiai7kGH5hLs0PtJXzGaNawSakEa80WuOayaYBBZiokkDHKH3fw6vcau82JC1U62NFzmLKGTHHLBui9IH5xYxkAKtl+yfg/dzfmGJmBZwYlUFDSXdhS1KMNawosRB3s13fNCpDc+uLKzcd8077nhtVxE3fHaQDxm1tmDFsoEmN4v1SG80FXfp9L4xKMGZwMlr8BDQq/ZCopt82KoFzEwMrqE2nLXdzC86MYnP0XhDdIy1KnlwU3vt08RHvG6XyBLEMno+5QKpjlDh8Oxle4eaIVuGYSGaVY5alb9Tl62ScSm6pwcxxeTItOot7aZQkRgMyQfU9Ll7+WPP1Jn3+ogQ3x4yKMxOxtuTRM8rGtT6tl5y3mlb62YU0dRRe+4+qxLxXgIcGVUbVO9v+ZaM0t5641yKYX4VeLTTBzJ5Om4sM2tN8rCcaFEwvhNFNom8UI0UxGFgLhoPSlngNsbYc6AOjHG4FtU/b2PoTV/vkvowf1XrhRUEtLabNJZ3ky2lL7r56TzcGY5Q8vFF/Y+luIdBpSIIZo9TRS1BwyY3B2XpZ0+lrZvJm7S+WWWDiq3J9oxEd3QjNqIl/jWnUIJhGDYJp1CCYRg2CadQQiPEP6RMjNRoIcOgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[ShippingMethodStr]</OutArgument>
+                </uix:NGetText.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <uix:NGetText DisplayName="Get Text 'Dane dostawy'" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" DesignTimeRectangle="1011, 739, 41, 19" ElementType="Text" FriendlyName="'6,99 zł'" FullSelectorArgument="&lt;webctrl aaname='6,99 zł' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='mgn2_14 mp0t_0a mgmw_wo mli8_k4 msa3_z4 mqu1_1' /&gt;" Guid="88297677-7e5d-4488-a086-f0966a53b514" InformativeScreenshot="123c0f784af8bffa6c846b11ce9a96ae.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="664, 714, 102, 18" ElementType="Text" FriendlyName="'Dane dostawy'" FullSelectorArgument="&lt;webctrl aaname='Dane dostawy' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Dane dostawy' tag='SPAN' type='' class='delivery-label' check:innerText='DANE DOSTAWY' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGoAAAAWCAYAAAAowQktAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJbSURBVGhD7VXbkcMgDLyq3URcBeMW7i+uwlUkTXCAJNALO5nk45hhZ/iIIqTVrkh+4sQQmEYNgmnUIJhGDYJp1CCYRg2CadQgaEYdIS7Lok6IB36tcWyQE3QC1bnt8YEhwBFDiq93isJn2c+pl/EOt+ceV5XbehIecb/JnGU74uO+yhg7sgbdX+P+xFAC3Pdiai7kGH5hLs0PtJXzGaNawSakEa80WuOayaYBBZiokkDHKH3fw6vcau82JC1U62NFzmLKGTHHLBui9IH5xYxkAKtl+yfg/dzfmGJmBZwYlUFDSXdhS1KMNawosRB3s13fNCpDc+uLKzcd8077nhtVxE3fHaQDxm1tmDFsoEmN4v1SG80FXfp9L4xKMGZwMlr8BDQq/ZCopt82KoFzEwMrqE2nLXdzC86MYnP0XhDdIy1KnlwU3vt08RHvG6XyBLEMno+5QKpjlDh8Oxle4eaIVuGYSGaVY5alb9Tl62ScSm6pwcxxeTItOot7aZQkRgMyQfU9Ll7+WPP1Jn3+ogQ3x4yKMxOxtuTRM8rGtT6tl5y3mlb62YU0dRRe+4+qxLxXgIcGVUbVO9v+ZaM0t5641yKYX4VeLTTBzJ5Om4sM2tN8rCcaFEwvhNFNom8UI0UxGFgLhoPSlngNsbYc6AOjHG4FtU/b2PoTV/vkvowf1XrhRUEtLabNJZ3ky2lL7r56TzcGY5Q8vFF/Y+luIdBpSIIZo9TRS1BwyY3B2XpZ0+lrZvJm7S+WWWDiq3J9oxEd3QjNqIl/jWnUIJhGDYJp1CCYRg2CadQQiPEP6RMjNRoIcOgAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[ShippingMethodValue]</OutArgument>
+                </uix:NGetText.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <uix:NClick ClickType="Single" DisplayName="Click 'chrome.exe Zamówienia'" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" DesignTimeRectangle="1520, 389, 40, 40" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;img' src='https://assets.allegrostatic.com/metrum/icon/invoice-vat-add-bc0*' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' src='https://assets.allegrostatic.com/metrum/icon/invoice-vat-add-bc0*' tag='IMG' class='iohzf' aaname='' /&gt;" Guid="3b011f41-093e-4859-888d-44f9123fdf64" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADnSURBVFhH7ZZBCoYgEEY7tVdoacuWncFl52jbFbyCPzM0IJKMYvOjNQ8+HEfFR7hoCoMxnecZRggx3he+xmFQYWlUWBoVlqZa2BjzaGr5jnArKpwjvYjmceI+wc1LEROe5xlr7z0GaugR8d4aHhNOWdcV+/R7CDX0iNw5DnHh4zgwUG/bdq12IJz2933HOYxxTaT7SxEXds5hoO5KOCV+t/F7JnLnOMSFl2UJ1lqsuxYGaO1uz12vhO8J/xsV5mg9r8IcKsxReyHt51LKd4S55ODWOd4v3IoK944KS6PC0qiwNIMJh/ADVE2g2k3y5iMAAAAASUVORK5CYII=" InformativeScreenshot="141db2ab1c95220900d5a9343c5f7581.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="1529, 396, 25, 27" FriendlyName="'chrome.exe Zamówienia'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABkAAAAbCAYAAACJISRoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVEhL7ZHBCQMhEEVTtS141KNHa/BoHV5twRYMM+TDRNZIdGM2kAef/Y4j77C3ugGWKKVOTct+ySrXk+AsI+dgdAZvSbTW3EspHOo0A3JX8lLS4pzjec6ZQ51moPduSpJS4lD33j9uJyXtPMbIZ/rKDtp9MCUJIXCoL0ta5H+Q/wf03k1JrLXVGMP9dAmBu6OdoxnxPcnZ/I5k9P4veeIjEuyPAvZLRukxut8nWeUCklrvtoAQLYEiuuQAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NGetText DisplayName="Get Text 'Kupujący'" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" DesignTimeRectangle="355, 599, 180, 21" ElementType="Text" FriendlyName="'NIP 9581728126'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='P' class='mgn2_14 mp0t_0a mqu1_21 mgmw_wo mli8_k4 mp4t_0 m3h2_0 mryx_0 munh_0' /&gt;" Guid="5a2c9821-a992-4f27-be21-22de8c88bf5f" InformativeScreenshot="2ab1961551993fd5a82aa25aff608ce3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="355, 579, 59, 19" ElementType="Text" FriendlyName="'Kupujący'" FullSelectorArgument="&lt;webctrl aaname='Kupujący' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Kupujący' tag='SPAN' type='' class='mgn2_14 mp0t_0a mqu1_21 mli8_k4 mgmw_ag' check:innerText='Kupujący' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD8AAAAXCAYAAAC8oJeEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMLSURBVFhH7Zbxa9pAFMf3Vx8SCqGEglAZR8FBf2gGoZQyS2W0A4VmzFIsKiM/CHMUoUKRkkJKyQ9CCfLdu8tFLzE6HW3p0A8UfKne3efuvXf5gDVmI7+ubOTXlY38eyPoexg8qeAV0eR9uLsMTleFkgjDOofBXfhj9ejVCeByhv3rUMWvx0J5/+Ktxd+WufKjrgNz20F3FMcC/6IEdphKjcyzLhzmwLtvwt4xwBiDsc1R/a0NQuOyXdpQFUpSz7KH4MM75LC2mByPbZXS4xGBV0VZzccME07nAY09hvJVOnuin3Zq7lz5PHHBcvIkvFfD8Dl+Eno0VqGMZlLDK8tH8O98RCr7otsqigVaW5KNNxUan6N2F8Xxc4CQ1i1F9xqY6kdoHzDwy+mTWfm6C16Y3TXBsvJ66Uwm/R7E4cryWcQcJbgP4nM8dukiNVrMmL5XSL5HhE2UmY22OhTBjDyzjtBuidPi0x8qlpPXJlT49SLYcS8OVpUfh+hfOuA7Fiz5Z8KYzLF4o3pfTBS/DeXn8JKDffZou6bMrXm/TlKZZvev8oMzC+ZJPw5WlO+fmLQOKqPJqvU5FstjeI6iWUGfkl/0gOz35spjTDFdOcWzgXqQLy/E0vI0hqdCSYjmJ62McuSjjt6I9HXkyMn0TeQXpL1ESJuotBrgtAm9zK01X14wasMuUPdUnU82EZO6ufKIhjVwg0olIy9PKtXwqNaS5ilOgxZfS44y9OBY9Jtc+Viu+HUQp2sUwju2YGi1HP06gmmW4WoNz3+cJrfYWNM0YWmHmLBYnpCdXwjLxY/QOy3R5LRYZsA6cDHoHM2kfbXlTq+6HRvubfra8K9sWGLTxP8/VuDdUJOdk/bQrs34mvMpk9KlFXgV8O3pVWe3tGZNB7jPijiPSz+FJv8S5Nf8auQfwoTHNpyDBr0HLklej1G8P/nxAFXq6JUbFWfoHVPJ3Kvgb0RD1Ggj7U468xLekXwgO7Isp0NPezlJ4//g9AJmwb5edPZx9rCCgdJpj4o1nxeW/7/YyK8nwB8nhnMmyF3BcwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[RowNip]</OutArgument>
+                </uix:NGetText.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <uix:NGetText DisplayName="Get Text 'Status'" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" DesignTimeRectangle="665, 631, 195, 21" ElementType="Text" FriendlyName="'PŁATNOŚĆ PRZY ODBIORZE'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='2' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='mgn2_14 mp0t_0a mqu1_21 mli8_k4 mgmw_d32 mryx_0' isleaf='1' tag='P' /&gt;" Guid="257cad21-5122-4461-a9b1-c51347b270a7" InformativeScreenshot="f53075cd05cefe4851f5d5ffa5ff379f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="665, 597, 41, 19" ElementType="Text" FriendlyName="'Status'" FullSelectorArgument="&lt;webctrl aaname='Status' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Status' tag='SPAN' type='' class='mgn2_14 mp0t_0a mqu1_21 mli8_k4 mgmw_ag' check:innerText='Status' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC0AAAAXCAYAAACf+8ZRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJhSURBVFhH7ZXPi9pAFMf7Vw8yCEMJshZDEUGhB3MInrTooZZuYQO1FGEtJZQcLEXYSAlLii4SJLAE+fZNMjHG2G6320oX/MIcZt5k5vN+zMsTPEKdoI+lE/SxdII+lvLQmyXsbh2CMzBGgwvorRE8ZY4+GtAvfDX7PbmvNJiOmvwl5aBnLwVY/RxuGMXzaO1h9tlFEM8S+/2gA4xb7F9C+7BqP7sghNPVockMlDVoFRr9aWyJvp6jWRPgMjOMQ2uP4W+kxYPVqoKXGPjT5JsXH5a07sBkOqzvck+q/FrkjWCc8STbdKZoDDBdJzapXKSnXQHRnmAZX1qU02HFSK88uKskM9gEmLR39xwKxF3QHoZnAqYdxhZyAeEioLBlytd06GLYIA+5hmZ/ksEoHYTek3+hg3VSyj+BJoYKQX9Ki7KoPLRSdO3A6uiUWo76a3fr5SHoaGFj0KLSkSUjR5lS+iBoit3VEM0yB39uwnJ8RHuZPwi91c0IzVIVQ9U+CtCrMdllKrOoPDzSSpsIvmPBrFHmnw0wu1XrpF9D711agHZMsJpFuzLFHei+0LcTGAVHUgUYNfJn7EB7cC5dLNeqjqMQ3qUBUTJgKy8lkDDt7FHMh9DIPlGBjr5RJ6G0ZtBJy9Pf7rolHxqtvfHoiZHo8dodDayUQgfw5susJAIbphAYXKk5KQc9otrc/lionrVGD/Zi5zGu6IBK0op4V7a8ENO+rP2ddvelB7GFJkfm0pHkzPo72fJI12MY6hxW1tGzZ7DqKbTkSFplYq/CeK8cVLqjPP5PnaCPpRP0sfQIoYEffUdhy4xcxbQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                </uix:NGetText.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <uix:NGetText DisplayName="Get Text 'Kwota na fakturze'" sap:VirtualizedContainerService.HintSize="797,156" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="bd8b3691-3e0e-49e3-b991-55131c161d24" Version="V1">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" DesignTimeRectangle="976, 632, 49, 19" ElementType="Text" FriendlyName="'42,49 zł'" FullSelectorArgument="&lt;webctrl aaname='42,49 zł' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='mgn2_14 mp0t_0a mgmw_wo mli8_k4 msa3_z4 mqu1_1' /&gt;" Guid="d401e98d-c2be-44de-80a5-b2d488a1e3c6" InformativeScreenshot="8fa8c928fa89c83ae9b774c26a1bd4b3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="976, 597, 118, 19" ElementType="Text" FriendlyName="'Kwota na fakturze'" FullSelectorArgument="&lt;webctrl aaname='Kwota na fakturze' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Kwota na fakturze' tag='SPAN' type='' class='mgn2_14 mp0t_0a mqu1_21 mli8_k4 mgmw_ag' check:innerText='Kwota na fakturze' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHoAAAAXCAYAAADEM1tgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS3SURBVGhD7Vj9a+NGEO1fvRgREEGEOFgUEXAglPhABBPOR0w5hzoQHZcSDM1hRDHUJRjqEEzw0YPgHwSHMK8zq7X17a9eaVrpgcntSjvanTfzdua+Q4lCoCS6ICiJLghKoguCkuiCoCS6ICiJTmDWt2FoAkIIGFdjNZuHAWxhwvmshq8YMaIH5wLmzVSNAsxcG/q+jYGnJr4hxu8N2AM1eA2YE3GVKjqPi7H6m4vVRPufGil//ltYSbQ3+OdIphBC70S8LqI/OzAFnVcN12M10aN3+n+A6GcHlmbBeQ6GeOzAqDQxVEMm6vaYJO7sHr6awayHumjg/msw9P5w0DjUpAwKzUDjZowgZiZwTqrQKgLavgHjwMDp3Rf5ZErSaRlqTUWDeTlUa9KY3pgwr0cYXlrQpdxqMM4cjCMLNrXn/dqCdaRLGzrtx/ihB96R/9BFvaZD4/XSfg/TZaYniPaGaB3xWR4xeGsGV8BecD6Dvku7gVNLBndyjm3acGdDtGvBvpu/gc6o7Kgf+876EPgM8y9w6Xs8l+UDRjbRSZIlRmjpRihrTCp/tEIZsDg4KYA46VEIEF7oOdnojOSIPDZB1yL714sIzzo0vfY8wVQFCvwx2of5Wc9Ei4qBZn8WBNt8hvszgerVRD5nbGMvM6NfJhi/qFBW9sMsjRA9p/NYGqxIBqevwk2JrqJ6fIrbp8V3gz9LUNJVI0rLyqGfu5jJ93xMfiK/vHHDBCSkif7Rgb0voF+O1GwIfl6/C4jj+0dc9Eh+dbQe5JT8oPE+KGD4/hXnCY+yKugtChlGNtFJpJ0VQhJdc8hSBFRTLIMtA6vsbSLd8pvLcy2I9sguO3sQU4vdiRY4/SVLdwjzMTqHOmxXPZd1RaiiEgllZaSIFpzJ/S6sik6SEY0JWn9Xh7Bd+pcvI7vR9+XBA3J5wyHp2Q6NZEAO0bPRLezjUKJYklcSnQwmVpUI+dvYyyLa/9NF+4TOqNYbe+SjGNFV2OcWSXQTg7i7/gbR+ff+9NqEThwsw0DumSU7+YvbyL2jvaxqm41yRkajiLOUHctRFJHxnYh+aEGvWOhOQo9l2wmwlugt7aWI5uuHAt52Q31IZzSp36mDDgW+fjGMyeU3J/q5C5P9nuRkjQox8osxihmWIy62QrskGwdVdH8mBy7lkedIBT42Y5KZScIa6U6vCSrzXYne1l7KaQl1YPD1FCdakeK5sHUKikhmbEY0+28Tomkt1QCNT1GWCV9dNLglDMuSTKwgmiDvA6ruInPynZq5vKsZfPjqUTW+VmaDiXZuMaacvhyre/+wjbFMCx+zflNWrrsSva29FNGy06AMWhzhiSrwPaqEs4gmJNtRWSRFZZb24L6hzKe5ZeF0bclqeR3R0w/0Xk7tIYPP6mDhavgeJk/TmLqsJprBFTgR1lUVuHReciPsXBGpyBX8SQ/291ntVQD/kR0X3CnWR2oVqHLtnVHrwO+rVmhKdcGuRG9rLy2DHrU1ZqRtodbqd1KzHKJTKvhCWX4QnF97qxpTasHaCZ/cX6wjeohmpBVd/BYtKXcDw6v68n/0uKWz3g1jQREjusT/FyXRBUFJdEFQEl0QlEQXBCXRhQDwFySAsL4ynZB+AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <uix:NGetText.Text>
+                  <OutArgument x:TypeArguments="x:String">[TotalValue]</OutArgument>
+                </uix:NGetText.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <Assign sap:VirtualizedContainerService.HintSize="797,61" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Nip]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[RowNip.Replace("NIP","")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:BuildDataTable DataTable="[InvoiceTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ProductName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Qty&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:BuildDataTable>
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExtractInvoiceTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,582" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ProductName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[CurrentRow(0).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Qty]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Split(CurrentRow(1).ToString," x ")(0).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Price]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Split(CurrentRow(1).ToString," x ")(1).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ProductName,Qty,Price}]" DataTable="[InvoiceTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:AddDataRow>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <If Condition="[Status=&quot;OPŁACONE&quot;]" DisplayName="If - Is paid" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="If_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_12">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[IsPaid]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="304,155" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_13">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[IsPaid]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Else>
+              </If>
+              <If Condition="[ShippingMethodValue=&quot;0,00 zł&quot;]" DisplayName="If - Shipping method" sap:VirtualizedContainerService.HintSize="797,539" sap2010:WorkflowViewState.IdRef="If_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Dostawa darmowa&quot;]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,380" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[ShippingMethodValue]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[ShippingMethodValue.Replace(" zł","")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ShippingMethodStr,&quot;1&quot;,ShippingMethodValue}]" DataTable="[InvoiceTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AddDataRow>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK6SURBVGhD7Zk7aBVREIbHJ+KjVImFD2wtbOzVQkGDoCDJuiaKF+ILghY2VklhKoUUioUSDYgvLNXmNj5ABBtBRFRMYQoRQUQMIkaO/ySz3s1hLu565xyvsj98HMKd8/8zZLN77oYqVapU6f+Q66OFbg9tBSfBLZfQM6xvwWfwHbwHL8B9fHbapbQT63LZ/neEpuehoV3gOvgCXEl+gDqG6XREs8Q2vKTxGngjjVhwz/XQGokIJ2n+pRduBV9m6yUqjNx+WuCFWjPudtNSiQsjhHz1Qm1J6LJEhRH+6N6pwQ0+gDo3gvUMOAuu4OenWPkPV9uTZ9L10kqJsxcC+HY4MzShB1j7XRetlTJVqFkFLvza15xTssVe+A08lpBJMIK7xzr5qLAw8AnxaMaYlNoL5r3g2p80nonv+/CoS7M6PbRMyttTbi/tUBvP6KbtUtqewgAdauMNjktpe8ptpLlK0w1SGpTSsMKDZzHCtiB0AOtVrI/AK8BHjd+hNz/NsETYC03PmbqGU7qNID5tag20yiWJsxWa7oL5mBcWglGJtBFua4vQ/A0lKBR2A0w1P31ta0GhMByAH1x6SEhsBsBl06mYN2McjGLPINZ+0NeUhA5i1TwyjAYoduk8B9tkSyG5AZrtefi0PgCfLhVjn4fuAC2RLYUVZ4CU9inGeSZwZlkh5aUUZwCcyz1TnxEpLa1YA5z3TGeS0iEpLa1Yl9A5xbhBSkeltLTiDJDQkGKc56aUllasAY4oxnn4S/omKS+lOAN002rF2GcC1Lgh2VZIUQZgweiJZ9yM14BfoxwG+tM3T7QncUKbFfMY2AzAgtm/e5hj4RvYfBje9QJCYzcAS74TXARFXg9aYDtAJjy8NsD8DuA3c1qwFWEGyMSHOAxzDPCbCP6fwUfwScJb5RuoSVSlSpUqtaWIfgLtZfqQ6yY/AQAAAABJRU5ErkJggg==" InformativeScreenshot="55d700db6896f929114797950ab9d2f1.png" Selector="&lt;html app='chrome.exe' title='Zamówienia' /&gt;" Url="https://allegro.pl/moje-allegro/sprzedaz/zamowienia/?lineItems.boughtAt.gte=2022-09-30T22%3A00%3A00.000Z&amp;action=INVOICE_REQUIRED" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Sequence DisplayName="Sequence- out arguments" sap:VirtualizedContainerService.HintSize="915,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="sd:DataTable">[out_InvoiceTable]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="sd:DataTable">[InvoiceTable]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_Nip]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Nip]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[out_IsPaid]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">[IsPaid]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_TotalValue]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[TotalValue]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+  </Sequence>
+</Activity>
